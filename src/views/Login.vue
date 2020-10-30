@@ -3,11 +3,12 @@
       <form
         id="app"
         novalidate="true"
+        @submit.prevent="myLogin"
       >
 
         <div class="field">
           <input
-            id="Psername"
+            id="username"
             v-model="username"
             type="text"
             name="username"
@@ -26,21 +27,43 @@
             class="text-input"
           >
         </div>
+        <button type="submit">Sign up</button>
 
-        <p>
+        <!-- <p>
           <input
             type="submit"
             value="Submit"
             class="submit"
           >
-        </p>
+        </p> -->
       </form>
   </div>
 </template>
 <script>
+import auth from '@/utils/auth';
+import { ref } from 'vue';
 
 export default {
+  name: 'Login',
+  setup() {
+    const username = ref('');
+    const password = ref('');
 
+    function myLogin() {
+      auth.login({
+        username, password,
+      })
+        .then((e) => {
+          console.log(e);
+        })
+        .catch(() => {
+          console.log('error');
+        });
+    }
+    return {
+      myLogin,
+    };
+  },
 };
 </script>
 

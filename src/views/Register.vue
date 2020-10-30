@@ -3,16 +3,28 @@
       <form
         id="app"
         novalidate="true"
+        @submit.prevent="myRegis"
       >
 
         <div class="field">
           <input
-            id="Username"
-            v-model="username"
+            id="firstname"
+            v-model="firstname"
             type="text"
-            name="username"
+            name="firstname"
             class="text-input"
-            placeholder="Username"
+            placeholder="firstname"
+          >
+        </div>
+
+        <div class="field">
+          <input
+            id="lastname"
+            v-model="lastname"
+            type="text"
+            name="lastname"
+            class="text-input"
+            placeholder="lastname"
           >
         </div>
 
@@ -37,21 +49,45 @@
             class="text-input"
           >
         </div>
-
+        <button type="submit">Sign up</button>
+      <!--
         <p>
           <input
             type="submit"
             value="Submit"
             class="submit"
           >
-        </p>
+        </p> -->
       </form>
   </div>
 </template>
 <script>
+import auth from '@/utils/auth';
+import { ref } from 'vue';
 
 export default {
+  name: 'Register',
+  setup() {
+    const firstname = ref('');
+    const lastname = ref('');
+    const email = ref('');
+    const password = ref('');
 
+    function myRegis() {
+      auth.register({
+        firstname, lastname, email, password,
+      })
+        .then((e) => {
+          console.log(e);
+        })
+        .catch(() => {
+          console.log('error');
+        });
+    }
+    return {
+      myRegis,
+    };
+  },
 };
 </script>
 
