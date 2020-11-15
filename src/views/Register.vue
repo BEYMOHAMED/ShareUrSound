@@ -3,7 +3,7 @@
       <form
         id="app"
         novalidate="true"
-        @submit.prevent="myRegis"
+        @submit.prevent="register"
       >
 
         <div class="field">
@@ -50,20 +50,12 @@
           >
         </div>
         <button type="submit">Sign up</button>
-      <!--
-        <p>
-          <input
-            type="submit"
-            value="Submit"
-            class="submit"
-          >
-        </p> -->
       </form>
   </div>
 </template>
 <script>
-import auth from '@/utils/auth';
 import { ref } from 'vue';
+import axios from 'axios';
 
 export default {
   name: 'Register',
@@ -73,19 +65,25 @@ export default {
     const email = ref('');
     const password = ref('');
 
-    function myRegis() {
-      auth.register({
-        firstname, lastname, email, password,
+    function register() {
+      console.log('firstname', firstname);
+      axios.post('https://api.shareyoursound.loscil.fr/api/register', {
+        firstname: firstname.value,
+        lastname: lastname.value,
+        email: email.value,
+        password: password.value,
       })
-        .then((e) => {
-          console.log(e);
+        .then((response) => {
+          console.log(response.data);
+          window.location = '/login';
         })
-        .catch(() => {
-          console.log('error');
+        .catch((error) => {
+          console.log(error);
         });
     }
+
     return {
-      myRegis,
+      firstname, lastname, email, password, register,
     };
   },
 };
