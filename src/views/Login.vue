@@ -3,7 +3,7 @@
       <form
         id="app"
         novalidate="true"
-        @submit.prevent="myLogin"
+        @submit.prevent="login"
       >
 
         <div class="field">
@@ -28,40 +28,37 @@
           >
         </div>
         <button type="submit">Sign up</button>
-
-        <!-- <p>
-          <input
-            type="submit"
-            value="Submit"
-            class="submit"
-          >
-        </p> -->
       </form>
   </div>
 </template>
 <script>
-import auth from '@/utils/auth';
 import { ref } from 'vue';
+import axios from 'axios';
 
 export default {
-  name: 'Login',
   setup() {
     const username = ref('');
     const password = ref('');
 
-    function myLogin() {
-      auth.login({
-        username, password,
+    function login() {
+      axios.post('https://api.shareyoursound.loscil.fr/api/login_check', {
+        username: username.value,
+        password: password.value,
       })
-        .then((e) => {
-          console.log(e);
+        .then((response) => {
+          console.log(response.data.token);
+          sessionStorage.setItem('token', response.data.token);
+          window.location = '/';
         })
-        .catch(() => {
-          console.log('error');
+        .catch((error) => {
+          console.log(error);
         });
     }
+
     return {
-      myLogin,
+      password,
+      username,
+      login,
     };
   },
 };
