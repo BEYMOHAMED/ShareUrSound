@@ -5,27 +5,28 @@
         novalidate="true"
         @submit.prevent="login"
       >
+        <div class="containerone">
+          <div class="field">
+            <input
+              id="username"
+              v-model="username"
+              type="text"
+              name="username"
+              class="text-input"
+              placeholder="Username"
+            >
+          </div>
 
-        <div class="field">
-          <input
-            id="username"
-            v-model="username"
-            type="text"
-            name="username"
-            class="text-input"
-            placeholder="Username"
-          >
-        </div>
-
-        <div class="field">
-          <input
-          placeholder="Password"
-            id="password"
-            v-model="password"
-            type="password"
-            name="password"
-            class="text-input"
-          >
+          <div class="field">
+            <input
+            placeholder="Password"
+              id="password"
+              v-model="password"
+              type="password"
+              name="password"
+              class="text-input"
+            >
+          </div>
         </div>
         <button type="submit">Sign up</button>
       </form>
@@ -68,16 +69,7 @@ export default {
 
   .login-container{
     margin-top: 10vh;
-    padding: 5vh 0;
-    border-radius: 15px;
-    border: none;
-    box-shadow: 0 -1px 10px rgba(0,0,0,0.05);
-    height: 40vh;
-    width: 30vw;
-    background-color: #FFF;
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
   label{
     font-weight: bold;
