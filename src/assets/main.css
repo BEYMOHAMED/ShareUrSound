@@ -1,0 +1,25 @@
+.headerback {
+    background-color: black;
+}
+
+.headerback {
+    display: flex;
+    justify-content: space-around;
+}
+
+.listnav {
+    display: flex;
+}
+
+.listnav div {
+    margin: 30px;
+}
+
+.removeliststyle {
+    text-decoration: none;
+    color: white;
+}
+
+.headerback h2 {
+    color: white;
+}
