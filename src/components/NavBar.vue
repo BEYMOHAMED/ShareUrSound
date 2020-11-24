@@ -6,9 +6,36 @@
                 <div><router-link to="/" class="removeliststyle">Friends</router-link></div>
                 <div><router-link to="/" class="removeliststyle">Friends</router-link></div>
                 <div><router-link to="/" class="removeliststyle">Friends</router-link></div>
-                <div><router-link to="/login" class="removeliststyle">Login</router-link></div>
-                <div><router-link to="/register" class="removeliststyle">Sign-in</router-link></div>
+                <div v-show="!isLogged">
+                  <router-link to="/login" class="removeliststyle">Login</router-link>
+                </div>
+                <div v-show="!isLogged">
+                  <router-link to="/register" class="removeliststyle">Sign-in</router-link>
+                </div>
+                <div v-show="isLogged">
+                  <router-link to="/" class="removeliststyle" @click="logout">Logout</router-link>
+                </div>
             </div>
         </div>
     </header>
 </template>
+
+<script>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+
+export default {
+  name: 'Header',
+  setup() {
+    const store = useStore();
+    const isLogged = computed(() => store.state.isLogged);
+    console.log('header', isLogged.value);
+    const logout = () => {
+      store.commit('logout');
+    };
+    return {
+      isLogged, logout,
+    };
+  },
+};
+</script>
