@@ -3,6 +3,7 @@ import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 import UpdateMyInfo from '../views/UpdateMyInfo.vue';
+import UserProfile from '../views/UserProfile.vue';
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
     path: '/updateme',
     name: 'UpdateMe',
     component: UpdateMyInfo,
+  },
+  {
+    path: '/user/:id(\\d+)',
+    name: 'User',
+    component: UserProfile,
   },
 ];
 
