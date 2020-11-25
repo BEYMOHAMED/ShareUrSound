@@ -2,9 +2,11 @@
   <div>
     <ul>
         <li v-for="user in users" :key="user.id">
+          <router-link :to="{name:'User', params: { id: user.id }}">
             {{ user.firstname }}
             {{ user.lastname }}
             {{ user.email }}
+          </router-link>
         </li>
     </ul>
   </div>
