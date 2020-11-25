@@ -66,15 +66,13 @@ export default {
     const email = ref('');
     const password = ref('');
     function register() {
-      console.log('firstname', firstname);
       axios.post('https://api.shareyoursound.loscil.fr/api/register', {
         firstname: firstname.value,
         lastname: lastname.value,
         email: email.value,
         password: password.value,
       })
-        .then((response) => {
-          console.log(response.data);
+        .then(() => {
           window.location = '/login';
         })
         .catch((error) => {

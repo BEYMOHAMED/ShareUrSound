@@ -5,16 +5,19 @@
     <p>email: {{ email }}</p>
     <p>id: {{ id }}</p>
     <img :src="picture" >
+    <button @click="update">Update Info</button>
   </div>
 </template>
 
 <script>
 import { ref, onBeforeMount } from 'vue';
+import { useRouter } from 'vue-router';
 import axios from 'axios';
 
 export default {
   name: 'AboutMe',
   setup() {
+    const router = useRouter();
     const firstname = ref('');
     const lastname = ref('');
     const email = ref('');
@@ -33,8 +36,14 @@ export default {
       id.value = response.data.user.id;
       picture.value = response.data.user.picture;
     });
+
+    const update = () => {
+      router.push({
+        name: 'UpdateMe',
+      });
+    };
     return {
-      firstname, lastname, email, picture, id,
+      firstname, lastname, email, picture, id, update,
     };
   },
 };

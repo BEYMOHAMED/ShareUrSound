@@ -53,7 +53,6 @@ export default {
         .then(async (response) => {
           sessionStorage.setItem('token', response.data.token);
           await store.commit('login');
-          console.log('login', store.state.isLogged);
           router.push({
             name: 'Home',
           });
