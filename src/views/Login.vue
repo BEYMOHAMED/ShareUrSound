@@ -35,9 +35,13 @@
 <script>
 import { ref } from 'vue';
 import axios from 'axios';
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 export default {
   setup() {
+    const router = useRouter();
+    const store = useStore();
     const username = ref('');
     const password = ref('');
 
@@ -46,10 +50,13 @@ export default {
         username: username.value,
         password: password.value,
       })
-        .then((response) => {
-          console.log(response.data.token);
+        .then(async (response) => {
           sessionStorage.setItem('token', response.data.token);
-          window.location = '/';
+          await store.commit('login');
+          console.log('login', store.state.isLogged);
+          router.push({
+            name: 'Home',
+          });
         })
         .catch((error) => {
           console.log(error);
