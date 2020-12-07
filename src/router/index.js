@@ -4,6 +4,10 @@ import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 import UpdateMyInfo from '../views/UpdateMyInfo.vue';
 import UserProfile from '../views/UserProfile.vue';
+import UserFollowers from '../views/UserFollowers.vue';
+import UserFollows from '../views/UserFollows.vue';
+import MyFollows from '../views/MyFollows.vue';
+import MyFollowers from '../views/MyFollowers.vue';
 
 const routes = [
   {
@@ -35,6 +39,26 @@ const routes = [
     path: '/user/:id(\\d+)',
     name: 'User',
     component: UserProfile,
+  },
+  {
+    path: '/user/:id(\\d+)/followers',
+    name: 'UserFollowers',
+    component: UserFollowers,
+  },
+  {
+    path: '/user/:id(\\d+)/follow',
+    name: 'UserFollows',
+    component: UserFollows,
+  },
+  {
+    path: '/user/followers',
+    name: 'MyFollowers',
+    component: MyFollowers,
+  },
+  {
+    path: '/user/follow',
+    name: 'MyFollows',
+    component: MyFollows,
   },
 ];
 
