@@ -42,7 +42,7 @@ export default {
           Authorization: `Bearer ${sessionStorage.getItem('token')}`,
         },
       });
-      console.log(response);
+
       firstname.value = response.data.user.firstname;
       lastname.value = response.data.user.lastname;
       email.value = response.data.user.email;
