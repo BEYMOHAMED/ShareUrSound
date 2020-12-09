@@ -8,6 +8,8 @@ import UserFollowers from '../views/UserFollowers.vue';
 import UserFollows from '../views/UserFollows.vue';
 import MyFollows from '../views/MyFollows.vue';
 import MyFollowers from '../views/MyFollowers.vue';
+import AddMedia from '../views/AddMedia.vue';
+import Medium from '../views/Medium.vue';
 
 const routes = [
   {
@@ -59,6 +61,16 @@ const routes = [
     path: '/user/follow',
     name: 'MyFollows',
     component: MyFollows,
+  },
+  {
+    path: '/media/add',
+    name: 'AddMedia',
+    component: AddMedia,
+  },
+  {
+    path: '/media/:id(\\d+)',
+    name: 'Medium',
+    component: Medium,
   },
 ];
 

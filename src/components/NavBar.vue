@@ -5,7 +5,9 @@
             <div class="listnav">
                 <div><router-link to="/about" class="removeliststyle">About Me</router-link></div>
                 <div><router-link to="/" class="removeliststyle">Home</router-link></div>
-                <div><router-link to="/" class="removeliststyle">Friends</router-link></div>
+                <div>
+                  <router-link to="/media/add" class="removeliststyle">Add Media</router-link>
+                </div>
                 <div v-show="!isLogged && !storeLogged">
                   <router-link to="/login" class="removeliststyle">Login</router-link>
                 </div>
