@@ -4,7 +4,7 @@
             <div><h2>ShareYourSound</h2></div>
             <div class="listnav">
                 <div><router-link to="/about" class="removeliststyle">About Me</router-link></div>
-                <div><router-link to="/" class="removeliststyle">Home</router-link></div>
+                <div><router-link to="/home" class="removeliststyle">Home</router-link></div>
                 <div>
                   <router-link to="/media/add" class="removeliststyle">Add Media</router-link>
                 </div>
