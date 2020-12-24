@@ -51,6 +51,7 @@ export default {
         password: password.value,
       })
         .then(async (response) => {
+          console.log(response);
           sessionStorage.setItem('token', response.data.token);
           await store.commit('login');
           router.push({
