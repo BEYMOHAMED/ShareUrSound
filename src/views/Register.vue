@@ -1,58 +1,43 @@
 <template>
-  <div class="login-container">
-      <form
-        id="app"
-        novalidate="true"
-        @submit.prevent="register"
-      >
-        <div class="containerone">
-          <div class="field">
-            <input
-              id="firstname"
-              v-model="firstname"
-              type="text"
-              name="firstname"
-              class="text-input"
-              placeholder="firstname"
-            >
-          </div>
-
-          <div class="field">
-            <input
-              id="lastname"
-              v-model="lastname"
-              type="text"
-              name="lastname"
-              class="text-input"
-              placeholder="lastname"
-            >
-          </div>
-
-          <div class="field">
-            <input
-              id="email"
-              v-model="email"
-              type="text"
-              name="email"
-              class="text-input"
-              placeholder="email"
-            >
-          </div>
-
-          <div class="field">
-            <input
-            placeholder="Password"
-              id="password"
-              v-model="password"
-              type="password"
-              name="password"
-              class="text-input"
-            >
-          </div>
-        </div>
-        <button type="submit">Sign up</button>
-      </form>
-  </div>
+  <form
+    id="app"
+    novalidate="true"
+    @submit.prevent="register"
+    class="login-container"
+  >
+    <h1>REGISTER</h1>
+    <img src="../assets/music.svg" class="music-icon"/>
+    <input
+      v-model="firstname"
+      type="text"
+      class="text-input"
+      placeholder="firstname"
+    >
+    <input
+      v-model="lastname"
+      type="text"
+      class="text-input"
+      placeholder="lastname"
+    >
+    <input
+      v-model="email"
+      type="email"
+      class="text-input"
+      placeholder="email"
+    >
+    <input
+      placeholder="Password"
+      v-model="password"
+      type="password"
+      class="text-input"
+    >
+    <button
+      type="submit"
+      class="form-btn"
+    >
+      Sign up
+    </button>
+  </form>
 </template>
 <script>
 import { ref } from 'vue';
@@ -85,11 +70,3 @@ export default {
   },
 };
 </script>
-
-<style>
-  .login-container{
-    margin-top: 10vh;
-    display: flex;
-  }
-
-</style>

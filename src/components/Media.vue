@@ -1,15 +1,24 @@
 <template>
-  <div>
-    <h1>Media</h1>
+  <div class="home-container">
     <ul>
-        <li v-for="media in medias" :key="media.id">
-          <router-link :to="{name:'Medium', params: { id: media.id }}">
+        <li
+          v-for="media in medias"
+          :key="media.id"
+          class="f-container media"
+        >
+          <router-link
+            :to="{name:'User', params: { id: media.author.id }}"
+            class="media-author"
+          >
+            {{ media.author.firstname }} {{ media.author.lastname }}
+          </router-link>
+          <router-link
+            :to="{name:'Medium', params: { id: media.id }}"
+            class="media-title"
+          >
             {{ media.name }}
           </router-link>
           <p>Like</p>
-          <router-link :to="{name:'User', params: { id: media.author.id }}">
-            <p>Author: {{ media.author.firstname }} {{ media.author.lastname }}</p>
-          </router-link>
         </li>
     </ul>
   </div>
@@ -29,6 +38,7 @@ export default {
           Authorization: `Bearer ${sessionStorage.getItem('token')}`,
         },
       });
+      console.log('media', response.data);
       medias.value = response.data.media;
 
       console.log(response);

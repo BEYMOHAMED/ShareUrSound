@@ -1,23 +1,33 @@
 <template>
     <header>
-        <div class="headerback">
-            <div><h2>ShareYourSound</h2></div>
-            <div class="listnav">
-                <div><router-link to="/about" class="removeliststyle">About Me</router-link></div>
-                <div><router-link to="/home" class="removeliststyle">Home</router-link></div>
-                <div>
-                  <router-link to="/media/add" class="removeliststyle">Add Media</router-link>
-                </div>
-                <div v-show="!isLogged && !storeLogged">
-                  <router-link to="/login" class="removeliststyle">Login</router-link>
-                </div>
-                <div v-show="!isLogged && !storeLogged">
-                  <router-link to="/register" class="removeliststyle">Sign-in</router-link>
-                </div>
-                <div v-show="storeLogged || isLogged">
-                  <router-link to="/" class="removeliststyle" @click="logout">Logout</router-link>
-                </div>
-            </div>
+        <div class="header-container">
+          <router-link to="/home" class="logo">ShareYourSound</router-link>
+          <div class="navigation">
+            <router-link to="/about" class="nav-item">About Me</router-link>
+            <router-link to="/media/add" class="nav-item">Add Media</router-link>
+            <router-link
+              v-show="!isLogged && !storeLogged"
+              to="/login"
+              class="nav-item"
+            >
+            Login
+            </router-link>
+            <router-link
+              v-show="!isLogged && !storeLogged"
+              to="/register"
+              class="nav-item"
+            >
+              Sign-in
+            </router-link>
+            <router-link
+              v-show="storeLogged || isLogged"
+              to="/"
+              class="nav-item"
+              @click="logout"
+            >
+              Logout
+            </router-link>
+          </div>
         </div>
     </header>
 </template>

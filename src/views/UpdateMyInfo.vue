@@ -1,17 +1,35 @@
 <template>
-  <div class="about">
-    <form
-      @submit.prevent="updateMe"
+  <form
+    @submit.prevent="updateMe"
+    class="login-container"
+  >
+    <h2>UPDATE PROFILE</h2>
+    <img src="../assets/user.svg" class="music-icon"/>
+    <input
+      class="text-input"
+      type="text"
+      v-model="firstname"
+      placeholder="firstname"
     >
-      <label for="firstname">Firstname</label>
-      <input type="text" id="firstname" v-model="firstname">
-      <label for="lastname">Lastname</label>
-      <input type="text" id="lastname" v-model="lastname">
-      <label for="email">Email</label>
-      <input type="text" id="email" v-model="email">
-      <button type="submit">Save</button>
-    </form>
-  </div>
+    <input
+        class="text-input"
+        type="text"
+        v-model="lastname"
+        placeholder="lastname"
+    >
+    <input
+      class="text-input"
+      type="text"
+      v-model="email"
+      placeholder="email"
+    >
+    <button
+      type="submit"
+      class="form-btn"
+    >
+      Save
+    </button>
+  </form>
 </template>
 
 <script>

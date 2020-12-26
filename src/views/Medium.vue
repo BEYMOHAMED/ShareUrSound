@@ -1,27 +1,53 @@
 <template>
-  <div class="about">
-    <h1>Medium</h1>
-    <p>name: {{ name }}</p>
+  <div class="medium-container">
+    <div class="medium-info">
+      <p class="media-author">{{ author }}</p>
+      <p class="medium-title">{{ name }}</p>
+    </div>
     <audio controls :src=file>
     </audio>
-    <p>file: {{ file }}</p>
-    <p>Author: {{ author }}</p>
     <p>Likes: {{likes}}</p>
-    <p>Type: </p>
-    <ul>
-      <li v-for="type in types" :key="type.id">
-        {{type.name}} <button @click="deleteType(type.id)">X</button>
+    <button
+      @click="like" v-show="!liked"
+      class="like-btn"
+    >
+    Like
+    <img src="../assets/heart.png" class="like-img" />
+    </button>
+    <button
+      @click="unlike" v-show="liked"
+      class="like-btn"
+    >
+      Unlike
+      <img src="../assets/like.png" class="like-img" />
+    </button>
+    <ul class="medium-type-wrapper">
+      <li
+        v-for="type in types" :key="type.id"
+        class="medium-type"
+      >
+        #{{type.name}}
+        <button
+          @click="deleteType(type.id)"
+          class="type-delete-btn"
+        >
+          X
+        </button>
       </li>
     </ul>
     <p>Add type:</p>
-    <form @submit.prevent="addType">
-      <select v-model="selectedType">
+    <form
+    @submit.prevent="addType"
+    class="form-select"
+    >
+      <select
+        v-model="selectedType"
+        class="type-select"
+      >
         <option v-for="type in allTypes" :key="type.id" :value=type.id >{{type.name}}</option>
       </select>
-      <button type="submit">Add type</button>
+      <button type="submit">ADD</button>
     </form>
-    <button @click="like" v-show="!liked">Like</button>
-    <button @click="unlike" v-show="liked">Unlike</button>
   </div>
 </template>
 

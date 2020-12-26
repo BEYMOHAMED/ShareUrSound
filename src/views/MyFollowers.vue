@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>My Followers</h1>
     <ul>
       <li v-for="follower in followers" :key="follower.id">
         <p>{{follower.firstname}}</p>

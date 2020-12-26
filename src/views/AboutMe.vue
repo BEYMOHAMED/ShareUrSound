@@ -1,21 +1,36 @@
 <template>
-  <div class="about">
-    <p>Firstname: {{ firstname }}</p>
-    <p>lastname: {{ lastname }}</p>
-    <p>email: {{ email }}</p>
-    <p>id: {{ id }}</p>
-    <p>Followers:
-      <router-link :to="{name:'MyFollowers', params: { id: id }}">
-        {{ followers }}
-      </router-link>
-    </p>
-    <p>Follows:
-      <router-link :to="{name:'MyFollows', params: { id: id }}">
-        {{ follows }}
-      </router-link>
-    </p>
-    <img :src="picture" >
-    <button @click="update">Update Info</button>
+  <div class="f-container">
+    <img :src="picture" class="profile-img">
+    <div>
+      <p class="user-name">{{ firstname }} {{ lastname }}</p>
+      <p class="user-email">{{ email }}</p>
+      <div class="follow-container">
+        <div class="follow">
+          <router-link
+            :to="{name:'MyFollowers', params: { id: id }}"
+            class="follow-nb"
+          >
+            {{ followers }}
+          </router-link>
+          <p class="follow-span">Followers</p>
+        </div>
+        <div class="follow">
+          <router-link
+            :to="{name:'MyFollows', params: { id: id }}"
+            class="follow-nb"
+          >
+            {{ follows }}
+          </router-link>
+          <p class="follow-span">Follows</p>
+        </div>
+      </div>
+    </div>
+    <button
+      @click="update"
+      class="update-btn"
+    >
+      Update Info
+    </button>
   </div>
 </template>
 

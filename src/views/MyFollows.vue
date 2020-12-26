@@ -1,11 +1,26 @@
 <template>
-  <div>
-    <h1>My Follows</h1>
+  <div class="mf-container">
     <ul>
-      <li v-for="follow in follows" :key="follow.id">
-        <p>{{follow.firstname}}</p>
-        <p>{{follow.lastname}}</p>
-        <img :src="follow.picture" alt="">
+      <li v-for="follow in follows" :key="follow.id" class="f-container">
+        <img :src="follow.picture" class="profile-img" alt="">
+        <div>
+          <p class="user-name">{{follow.firstname}} {{follow.lastname}}</p>
+          <p class="user-email">{{follow.email}}</p>
+          <div class="follow-container">
+            <div class="follow">
+              <p class="follow-nb">
+                {{ follow.followers }}
+              </p>
+              <span class="follow-span">Followers</span>
+            </div>
+            <div class="follow">
+              <p class="follow-nb">
+                {{ follow.follows }}
+              </p>
+              <span class="follow-span">Follows</span>
+            </div>
+          </div>
+        </div>
       </li>
     </ul>
   </div>

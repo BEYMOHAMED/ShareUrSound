@@ -1,21 +1,29 @@
 <template>
-  <div class="about">
-    <h1>User Profile</h1>
-    <p>Firstname: {{ firstname }}</p>
-    <p>Lastname: {{ lastname }}</p>
-    <p>Email: {{ email }}</p>
-    <p>Followers:
-      <router-link :to="{name:'UserFollowers', params: { id: id }}">
-        {{ followers }}
-      </router-link>
-    </p>
-    <p>Follows:
-      <router-link :to="{name:'UserFollows', params: { id: id }}">
-        {{ follows }}
-      </router-link>
-    </p>
-    <button @click="follow" v-show="!followedByMe">Follow</button>
+  <div class="f-container">
     <img :src="picture" alt="">
+    <div>
+      <p class="user-name">{{ firstname }} {{ lastname }}</p>
+      <p class="user-email">{{ email }}</p>
+      <div class="follow-container">
+        <div class="follow">
+        <router-link :to="{name:'UserFollowers', params: { id: id }}">
+          {{ followers }}
+        </router-link>
+        <p class="follow-span">Followers</p>
+        <router-link :to="{name:'UserFollows', params: { id: id }}">
+          {{ follows }}
+        </router-link>
+        <p class="follow-span">Follows</p>
+        </div>
+      </div>
+    </div>
+    <button
+      class="update-btn"
+      @click="follow"
+      v-show="!followedByMe"
+    >
+      Follow
+    </button>
   </div>
 </template>
 

@@ -1,33 +1,33 @@
 <template>
   <div>
-    <h2>ADD MEDIA</h2>
       <form
+        class="login-container"
         id="app"
         novalidate="true"
         @submit.prevent="addMedia"
       >
-        <div>
-          <div>
-            <input
-              id="mediaName"
-              v-model="mediaName"
-              type="text"
-              name="mediaName"
-              placeholder="Media Name"
-            >
-          </div>
-
-          <div class="field">
-            <input
-            placeholder="Media File"
-              id="mediaFile"
-              v-model="mediaFile"
-              type="text"
-              name="mediaFile"
-            >
-          </div>
-        </div>
-        <button type="submit">Upload</button>
+        <h2>ADD MEDIA</h2>
+        <img src="../assets/addmusic.svg" class="music-icon"/>
+        <input
+          class="text-input"
+          v-model="mediaName"
+          type="text"
+          name="mediaName"
+          placeholder="Media Name"
+        >
+        <input
+          placeholder="Media File"
+          class="text-input"
+          v-model="mediaFile"
+          type="text"
+          name="mediaFile"
+        >
+        <button
+          type="submit"
+          class="form-btn"
+        >
+          Upload
+        </button>
       </form>
   </div>
 </template>
